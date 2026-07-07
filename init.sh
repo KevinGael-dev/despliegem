@@ -13,7 +13,16 @@ which mariadbd || true
 
 echo "=== Buscando mysql ==="
 which mysql || true
-service mysql start
+echo ">>> Iniciando servicio de base de datos..."
+
+if [ -f /etc/init.d/mariadb ]; then
+    service mariadb start
+elif [ -f /etc/init.d/mysql ]; then
+    service mysql start
+else
+    echo "No se encontró el servicio MariaDB/MySQL"
+    exit 1
+fi
 
 # Esperar a que MySQL esté listo para aceptar conexiones
 until mysqladmin ping -h "localhost" --silent; do
