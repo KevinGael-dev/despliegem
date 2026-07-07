@@ -31,7 +31,7 @@ until mysqladmin ping -h "localhost" --silent; do
 done
 
 echo ">>> Configurando base de datos 'biblioteca'..."
-mysql -u root <<-EOSQL
+mysql -u root -p root_password <<-EOSQL
     ALTER USER 'root'@'localhost' IDENTIFIED BY 'root_password';
     CREATE DATABASE IF NOT EXISTS biblioteca;
     USE biblioteca;
