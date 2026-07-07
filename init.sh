@@ -2,6 +2,17 @@
 set -e
 
 echo ">>> Iniciando servicio MySQL..."
+echo "=== Servicios disponibles ==="
+ls -l /etc/init.d || true
+
+echo "=== Buscando mysqld ==="
+which mysqld || true
+
+echo "=== Buscando mariadbd ==="
+which mariadbd || true
+
+echo "=== Buscando mysql ==="
+which mysql || true
 service mysql start
 
 # Esperar a que MySQL esté listo para aceptar conexiones
