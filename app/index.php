@@ -2,8 +2,8 @@
 // Configuración de conexión a la base de datos.
 // DB_HOST se puede sobreescribir con una variable de entorno (útil para Render / TiDB Cloud).
 $db_host = getenv('DB_HOST') ?: '127.0.0.1';
-$db_user = getenv('DB_USER') ?: 'root';
-$db_pass = getenv('DB_PASS') ?: 'root_password';
+$db_user = getenv('DB_USER') ?: 'biblioteca_user';
+$db_pass = getenv('DB_PASS') ?: 'secret123';
 $db_name = getenv('DB_NAME') ?: 'biblioteca';
 
 $conn = null;
